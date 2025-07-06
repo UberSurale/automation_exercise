@@ -1,0 +1,36 @@
+[
+    {
+        "products": [
+            {
+                "productName": "Blue Top",
+                "price": 500,
+                "quantity": 1
+            },
+            {
+                "productName": "Men Tshirt",
+                "price": 400,
+                "quantity": 2
+            },
+            {
+                "productName": "Winter Top",
+                "price": 600,
+                "quantity": 1
+            }
+        ], 
+        "expectedQuantity": 4
+    },
+    {
+        "products": [],
+        "expectedQuantity": 0
+    },
+    {
+        "products": [
+            {
+                "productName": "Stylish Dress",
+                "price": 1500,
+                "quantity": 10
+            }
+        ],
+        "expectedQuantity": 10
+    }
+]
