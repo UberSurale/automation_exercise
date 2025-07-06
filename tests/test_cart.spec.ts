@@ -6,21 +6,22 @@ productData.forEach(({ products, expectedQuantity }) => {
     test.describe('Cart basic test', () => {
 
         test.beforeEach(async ({ mainPage, modalComponent }) => {
+            let totalCounter: number = 0;
             for (const { productName, quantity } of products) {
-                let totalCounter: number = 0;
                 for (let i: number = 0; i < quantity; i++) {
-                    totalCounter += i;
+                    totalCounter++;
                     console.log(totalCounter);
 
                     await mainPage.product(productName).addToCard();
 
                     await modalComponent.expectToBeVisible();
-                    if (totalCounter < products.length) {
+                    if (totalCounter != expectedQuantity) {
                         await modalComponent.clickContinueButton(ModalButtonEnum.continueGeneral);
+                    } else {
+                        await modalComponent.clickLink(ModalLinkEnum.viewCart);
                     }
                 }
             }
-            await modalComponent.clickLink(ModalLinkEnum.viewCart);
         });
 
         for (const { productName } of products) {
