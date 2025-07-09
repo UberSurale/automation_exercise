@@ -1,8 +1,8 @@
 import { test } from "./base.ts";
-import { ModalButtonEnum, ModalLinkEnum } from "./enums/ModalButtons.ts";
+import { ModalButtonEnum, ModalLinkEnum } from "./common/enums/ModalButtons.ts";
 import productData from './data/productData.json';
 
-productData.forEach(({ products, expectedQuantity, expectedRows }) => {
+productData.forEach(({ products, expectedQuantity }) => {
     test.describe('Cart basic test', () => {
 
         test.beforeEach(async ({ mainPage, modalComponent }) => {

@@ -1,0 +1,1 @@
+const BASE_URL: string = "https://automationexercise.com/";

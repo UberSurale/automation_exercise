@@ -8,7 +8,7 @@ export class MainPage extends BasePageImpl {
     readonly sliderCarousel: Locator
     readonly featureItems: Locator
     readonly logoImage: Locator
-    readonly pesonalDataAgree: Locator 
+    readonly pesonalDataAgree: Locator
 
     constructor(page: Page) {
         super(page);
@@ -35,5 +35,10 @@ export class MainPage extends BasePageImpl {
 
     async agreeOnPersonalData(): Promise<void> {
         await this.pesonalDataAgree.click();
+    }
+
+    async expectUserNameAtHeaded(userName: string): Promise<void> {
+        const loggedAsElement = this.page.getByRole('link', { name: `Logged in as ${userName}` })
+        expect(loggedAsElement).toBeVisible();
     }
 }
