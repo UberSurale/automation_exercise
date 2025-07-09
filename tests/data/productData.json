@@ -17,11 +17,13 @@
                 "quantity": 1
             }
         ], 
-        "expectedQuantity": 4
+        "expectedQuantity": 4,
+        "expectedRows": 3
     },
     {
         "products": [],
-        "expectedQuantity": 0
+        "expectedQuantity": 0,
+        "expectedRows": 0
     },
     {
         "products": [
@@ -31,6 +33,7 @@
                 "quantity": 10
             }
         ],
-        "expectedQuantity": 10
+        "expectedQuantity": 10,
+        "expectedRows": 1
     }
 ]

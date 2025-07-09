@@ -26,12 +26,18 @@ export class CartPage extends BasePageImpl {
         await expect(quantityButton).toHaveText(expectedQuantity.toString());
     }
 
-    async deleteFromCart(productName: string): Promise<void> {
+    async deleteFromCart(productName: string, isLastItem: boolean): Promise<void> {
         const productRow = this.cartInfo.locator('tr').filter({ hasText: productName });
         const deleteButton = productRow.locator('a.cart_quantity_delete');
         const emptyCard = this.page.locator('#empty_cart')
+        
         await deleteButton.click();
         await expect(productRow).not.toBeVisible();
-        await expect(emptyCard).toBeVisible();
+
+        if (isLastItem) {
+            await expect(emptyCard).toBeVisible();
+        } else {
+            await expect(emptyCard).not.toBeVisible();
+        }
     }
 }
