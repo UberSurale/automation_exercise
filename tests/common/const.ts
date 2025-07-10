@@ -1,1 +1,1 @@
-const BASE_URL: string = "https://automationexercise.com/";
+export const BASE_URL: string = "https://automationexercise.com";

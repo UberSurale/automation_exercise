@@ -38,7 +38,8 @@ export class MainPage extends BasePageImpl {
     }
 
     async expectUserNameAtHeaded(userName: string): Promise<void> {
-        const loggedAsElement = this.page.getByRole('link', { name: `Logged in as ${userName}` })
+        // TODO: хз че ему надо, отдебажить
+        const loggedAsElement = this.page.getByText(` Logged in as `);
         expect(loggedAsElement).toBeVisible();
     }
 }

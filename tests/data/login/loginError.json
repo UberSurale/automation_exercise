@@ -1,0 +1,7 @@
+[
+    {
+        "userEmail": "cum@cum.com",
+        "password": "wrong_password_buddy",
+        "expectedMessage": "Your email or password is incorrect!"
+    }
+]

@@ -3,6 +3,7 @@ import { MainPage } from "./pages/MainPage"
 import { CartPage } from "./pages/CartPage"
 import { ModalComponent } from "./components/Modal"
 import { LoginPage } from "./pages/LoginPage"
+import { BASE_URL } from "./common/const"
 
 type TestOptions = {
     mainPage: MainPage,
@@ -27,8 +28,6 @@ export const test = base.extend<TestOptions>({
     },
     loginPage: async({page}, use) => {
         const loginPage = new LoginPage(page);
-        loginPage.navigate(`${BASE_URL}/login`);
-        loginPage.expectAt();
         await use(loginPage);
     }
 })
