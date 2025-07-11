@@ -33,12 +33,9 @@ test.describe.only('Login cases', () => {
         loginDataNativeErrors.forEach(({userEmail, password}) => {
 
             test(`Validate with HTML5 validation for ${userEmail} and ${password}`, async ({loginPage, page}) => {
-                const [request] = await Promise.all([
-                    page.waitForRequest('**/login').catch(() => null),
-                    await loginPage.loginTo(userEmail, password)
-                ]);
-
-                expect(request).toBeNull();
+                await loginPage.loginTo(userEmail, password);
+                const isValid = await page.$eval('form', (form: HTMLFormElement) => form.checkValidity())
+                expect(isValid).toBe(false);
             });
 
         })
